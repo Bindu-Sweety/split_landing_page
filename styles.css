@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --left-bg-color: rgba(87, 84, 236, 0.7);
+  --right-bg-color: rgba(43, 43, 43, 0.8);
+  --left-btn-hover-color: rgba(87, 84, 236, 1);
+  --right-btn-hover-color: rgba(28, 122, 28, 1);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto" sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+h1 {
+  position: absolute;
+  font-size: 4rem;
+  color: #fff;
+  top: 20%;
+  left: 50%;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+.btn {
+  position: absolute;
+  font-size: 1rem;
+  color: #fff;
+  top: 40%;
+  left: 50%;
+  border: #fff solid 0.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  width: 15rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+.split.left .btn:hover {
+  background: var(--left-btn-hover-color);
+  border-color: var(--left-btn-hover-color);
+}
+.split.right .btn:hover {
+  background: var(--right-btn-hover-color);
+  border-color: var(--right-btn-hover-color);
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #333;
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.split.left {
+  left: 0;
+  background: url("images/airfocus-K_VeavYEfdA-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.split.left,
+.split.right,
+.split.left::before,
+.split.right::before {
+  transition: all var(--speed) ease-in-out;
+}
+.split.left::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--left-bg-color);
+}
+.split.right {
+  right: 0;
+  background: url("images/markus-spiske-MI9-PY5cyNs-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.split.right::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--right-bg-color);
+}
+.hover-left .left {
+  width: var(--hover-width);
+}
+.hover-left .right {
+  width: var(--other-width);
+}
+.hover-right .right {
+  width: var(--hover-width);
+}
+.hover-right .left {
+  width: var(--hover-width);
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+    top: 30%;
+  }
+  .btn {
+    padding: 1.2rem;
+    width: 12rem;
+  }
+}
